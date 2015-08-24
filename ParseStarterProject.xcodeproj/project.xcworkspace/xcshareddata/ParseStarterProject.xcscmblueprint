@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E1877ED6D0D768E016FB055ED7F9695570EDFB4C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E1877ED6D0D768E016FB055ED7F9695570EDFB4C" : 0,
+    "C21B2212EBADD1B2754EBC5C452A374D84916E17" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C71CA547-1812-4FF7-B948-303D93BAE938",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E1877ED6D0D768E016FB055ED7F9695570EDFB4C" : "tinder-clone\/",
+    "C21B2212EBADD1B2754EBC5C452A374D84916E17" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ParseStarterProject",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ParseStarterProject.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:chrisxwan\/insta-clone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C21B2212EBADD1B2754EBC5C452A374D84916E17"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:chrisxwan\/tinder-clone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E1877ED6D0D768E016FB055ED7F9695570EDFB4C"
+    }
+  ]
+}

@@ -58,6 +58,14 @@ class SwipingViewController: UIViewController {
         }
         query.whereKey("gender", equalTo: genderInterestedIn)
         query.whereKey("interestedIn", equalTo:isFemale)
+        
+        if let latitude = PFUser.currentUser()?["location"]!.latitude {
+            if let longitude = PFUser.currentUser()?["location"]!.longitude {
+                query.whereKey("location", withinGeoBoxFromSouthwest: PFGeoPoint(latitude:latitude-1, longitude: longitude-1), toNortheast: PFGeoPoint(latitude:latitude+1, longitude:longitude+1))
+            }
+        }
+
+        
         var alreadySeen = [""]
         if let acceptedArray = PFUser.currentUser()?["accepted"] {
             alreadySeen += acceptedArray as! Array
@@ -93,6 +101,12 @@ class SwipingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateImage()
+        PFGeoPoint.geoPointForCurrentLocationInBackground { (geoPoint, error) -> Void in
+            if let geoPoint = geoPoint {
+                PFUser.currentUser()?["location"] = geoPoint
+                PFUser.currentUser()?.save()
+            }
+        }
         let gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
         userImage.addGestureRecognizer(gesture)
         userImage.userInteractionEnabled = true

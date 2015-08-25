@@ -10,41 +10,34 @@ import FBSDKCoreKit
 
 class ViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+    @IBAction func signinWithFacebook(sender: AnyObject) {
         let permissions = ["public_profile"]
         
         
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {
-            
             (user: PFUser?, error: NSError?) -> Void in
-            
             if let error = error {
-                
                 print(error)
-                
             } else {
-                
                 if let user = user {
-                    
                     print(user)
-                    
-                    
+                    self.performSegueWithIdentifier("showSigninScreen", sender: self)
                 }
-                
-                
-                
             }
-            
-            
-            
         })
-        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
        
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if let username = PFUser.currentUser()?.username {
+            performSegueWithIdentifier("showSigninScreen", sender: self)
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

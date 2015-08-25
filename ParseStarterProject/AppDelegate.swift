@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Remove this line if you don't want to use Local Datastore features or want to use cachePolicy.
         Parse.enableLocalDatastore()
 
-        Parse.setApplicationId("dt3mIvfAtWjmbeJe0fWJMoO3u5cAPYIxNF0RaFlV",
-            clientKey: "REj1QkHOqUlQGp96HrdlL3lGwD9YLZKX2vBKbD8e")
+        Parse.setApplicationId("bRi2WKkdzH6EKw7fZKvvjwpJAJ9dHGfLW4QpcBuG",
+            clientKey: "zqRgn3GNqwwCkDr47Dd3tvAKuTnau3K4M2is4Xqk")
         
         
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)

@@ -11,7 +11,7 @@ import FBSDKCoreKit
 class ViewController: UIViewController {
     
     @IBAction func signinWithFacebook(sender: AnyObject) {
-        let permissions = ["public_profile"]
+        let permissions = ["public_profile", "user_posts"]
         
         
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {
@@ -20,8 +20,11 @@ class ViewController: UIViewController {
                 print(error)
             } else {
                 if let user = user {
-                    print(user)
-                    self.performSegueWithIdentifier("showSigninScreen", sender: self)
+                    if let interestedIn = user["interestedIn"] {
+                        self.performSegueWithIdentifier("logUserIn", sender: self)
+                    } else {
+                        self.performSegueWithIdentifier("showSigninScreen", sender: self)
+                    }
                 }
             }
         })
@@ -33,8 +36,13 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        PFUser.logOut()
         if let username = PFUser.currentUser()?.username {
-            performSegueWithIdentifier("showSigninScreen", sender: self)
+            if let alreadySignedUp = PFUser.currentUser()?["interestedIn"] {
+                performSegueWithIdentifier("logUserIn", sender: self)
+            } else {
+                performSegueWithIdentifier("showSigninScreen", sender: self)
+            }
         }
     }
 

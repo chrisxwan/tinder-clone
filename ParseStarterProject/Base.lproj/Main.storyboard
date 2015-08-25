@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -49,11 +50,77 @@
                     </view>
                     <connections>
                         <segue destination="ngR-Pz-2UG" kind="show" identifier="showSigninScreen" id="LWz-cN-aLA"/>
+                        <segue destination="NCn-FM-lha" kind="show" identifier="logUserIn" id="TZd-Ku-8vp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="357"/>
+        </scene>
+        <!--Swiping View Controller-->
+        <scene sceneID="C8H-Ml-VFh">
+            <objects>
+                <viewController id="NCn-FM-lha" customClass="SwipingViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SCi-BK-XSi"/>
+                        <viewControllerLayoutGuide type="bottom" id="4mq-mt-UZe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iRU-0p-jgg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYl-DQ-B1C">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="tRx-iw-xJK"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Tinder" id="ndR-Ck-ieU">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="bYB-VS-qBz">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" identifier="logout" id="XLC-BM-bDB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ws-xQ-v3l">
+                                <rect key="frame" x="180" y="109" width="240" height="226"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="226" id="Ddj-dr-r9J"/>
+                                    <constraint firstAttribute="width" constant="240" id="KjL-XQ-6EV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to reject, right to accept" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZT-BF-KOj">
+                                <rect key="frame" x="132" y="389" width="337" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="Nvi-fZ-DbR"/>
+                                    <constraint firstAttribute="width" constant="337" id="kNA-c8-rci"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BYl-DQ-B1C" firstAttribute="leading" secondItem="iRU-0p-jgg" secondAttribute="leadingMargin" constant="-20" id="BuV-c8-pUD"/>
+                            <constraint firstItem="BYl-DQ-B1C" firstAttribute="top" secondItem="iRU-0p-jgg" secondAttribute="topMargin" id="MzT-nc-gwq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BYl-DQ-B1C" secondAttribute="trailing" constant="-20" id="cHA-fU-IJc"/>
+                            <constraint firstItem="8ws-xQ-v3l" firstAttribute="centerX" secondItem="iRU-0p-jgg" secondAttribute="centerX" id="hp5-Cr-tXU"/>
+                            <constraint firstItem="CZT-BF-KOj" firstAttribute="centerX" secondItem="iRU-0p-jgg" secondAttribute="centerX" id="ihH-Mo-dps"/>
+                            <constraint firstItem="CZT-BF-KOj" firstAttribute="top" secondItem="8ws-xQ-v3l" secondAttribute="bottom" constant="54" id="p64-as-3g5"/>
+                            <constraint firstItem="8ws-xQ-v3l" firstAttribute="top" secondItem="BYl-DQ-B1C" secondAttribute="bottom" constant="65" id="z9e-KQ-1Sj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="CZT-BF-KOj" id="8dR-wB-gQx"/>
+                        <outlet property="userImage" destination="8ws-xQ-v3l" id="5wK-xy-uO0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84d-GA-H3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979" y="-346"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Jvz-PH-HLe">

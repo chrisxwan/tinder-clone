@@ -11,7 +11,7 @@ import FBSDKCoreKit
 class ViewController: UIViewController {
     
     @IBAction func signinWithFacebook(sender: AnyObject) {
-        let permissions = ["public_profile", "user_posts"]
+        let permissions = ["public_profile", "user_posts", "email"]
         
         
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {

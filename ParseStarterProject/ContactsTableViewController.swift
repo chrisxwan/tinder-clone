@@ -13,6 +13,7 @@ class ContactsTableViewController: UITableViewController {
     
     var usernames = [String]()
     var images = [UIImage]()
+    var emails = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class ContactsTableViewController: UITableViewController {
             if let objects = objects {
                 for object in objects as! [PFUser]{
                     self.usernames.append(object.username!)
+                    self.emails.append(object["email"] as! String)
                     let imageFile = object["image"] as! PFFile
                     imageFile.getDataInBackgroundWithBlock{ (imageData, error) -> Void in
                         if(error != nil) {
@@ -73,6 +75,11 @@ class ContactsTableViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let url = NSURL(string: "mailto:" + emails[indexPath.row])
+        UIApplication.sharedApplication().openURL(url!)
     }
 
 
